@@ -1,0 +1,442 @@
+{
+  "scenario": "S8 hold one of two batches",
+  "ok": true,
+  "failures": [],
+  "checks": {
+    "line_exclusivity": {
+      "ok": true,
+      "detail": []
+    },
+    "transitions": {
+      "ok": true,
+      "detail": []
+    },
+    "aggregation": {
+      "ok": true,
+      "detail": []
+    },
+    "command_legality": {
+      "ok": true,
+      "detail": []
+    },
+    "mass_balance": {
+      "ok": true,
+      "detail": []
+    },
+    "batch_sizes": {
+      "ok": true,
+      "detail": []
+    },
+    "final_states": {
+      "ok": true,
+      "detail": []
+    },
+    "resources_released": {
+      "ok": true,
+      "detail": []
+    }
+  },
+  "transition_table": [
+    {
+      "batch": "B801",
+      "phase": "FEED-RM-1-1",
+      "path": "P-101.REACTION.CHARGE.FEED-RM-1-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "FEED-RM-2-2",
+      "path": "P-101.REACTION.CHARGE.FEED-RM-2-2",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "COOK",
+      "path": "P-101.REACTION.REACT-OP.COOK",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "HOLDING"
+        ],
+        [
+          "HOLDING",
+          "HELD"
+        ],
+        [
+          "HELD",
+          "RESTARTING"
+        ],
+        [
+          "RESTARTING",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "HOLDING"
+        ],
+        [
+          "HOLDING",
+          "HELD"
+        ],
+        [
+          "HELD",
+          "RESTARTING"
+        ],
+        [
+          "RESTARTING",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "QC",
+      "path": "P-101.REACTION.REACT-OP.QC",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "XFER",
+      "path": "P-101.LETDOWN.TRANSFER.XFER",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "TINT",
+      "path": "P-101.TINT.TINT.TINT",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "FEED-MILL",
+      "path": "P-101.MILL.MILL.FEED-MILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "GRIND",
+      "path": "P-101.MILL.MILL.GRIND",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B801",
+      "phase": "FILL",
+      "path": "P-101.FILL.FILL.FILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "FEED-RM-1-1",
+      "path": "P-102.REACTION.CHARGE.FEED-RM-1-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "FEED-RM-3-1",
+      "path": "P-102.REACTION.CHARGE.FEED-RM-3-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "COOK",
+      "path": "P-102.REACTION.COOK-OP.COOK",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "QC-INLINE",
+      "path": "P-102.REACTION.QC-OP.QC-INLINE",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "XFER",
+      "path": "P-102.LETDOWN.TRANSFER.XFER",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "TINT",
+      "path": "P-102.TINT.TINT.TINT",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "FEED-MILL",
+      "path": "P-102.MILL.MILL.FEED-MILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "GRIND",
+      "path": "P-102.MILL.MILL.GRIND",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B802",
+      "phase": "FILL",
+      "path": "P-102.FILL.FILL.FILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    }
+  ],
+  "batches": {
+    "B801": {
+      "state": "COMPLETE",
+      "started": "",
+      "finished": "00:10:02.000",
+      "phases": [
+        "FEED-RM-1-1",
+        "FEED-RM-2-2",
+        "COOK",
+        "QC",
+        "XFER",
+        "TINT",
+        "FEED-MILL",
+        "GRIND",
+        "FILL"
+      ]
+    },
+    "B802": {
+      "state": "COMPLETE",
+      "started": "",
+      "finished": "00:07:50.200",
+      "phases": [
+        "FEED-RM-1-1",
+        "FEED-RM-3-1",
+        "COOK",
+        "QC-INLINE",
+        "XFER",
+        "TINT",
+        "FEED-MILL",
+        "GRIND",
+        "FILL"
+      ]
+    }
+  },
+  "stopped_reason": "all batches finished",
+  "duration": "00:10:02.000"
+}

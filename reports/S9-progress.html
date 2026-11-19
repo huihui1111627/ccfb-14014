@@ -1,0 +1,200 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<title>Batch progress</title>
+<style>
+:root{--ink:#13191f;--muted:#647079;--line:#dbe1e7;--bg:#f7f9fb;
+      --ok:#1a7f37;--run:#0b6bcb;--hold:#b35900;--bad:#b42318;
+      --idle:#c9d2da;--done:#2f7d4f;}
+*{box-sizing:border-box}
+body{margin:0;font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",
+     Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);}
+header{background:#101820;color:#fff;padding:14px 26px;}
+header h1{margin:0;font-size:18px;font-weight:650;letter-spacing:-.2px}
+header .meta{color:#9fb0bf;font-size:12px;margin-top:3px}
+main{padding:18px 26px 40px;max-width:1500px}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+   color:var(--muted);margin:22px 0 8px;border-bottom:1px solid var(--line);
+   padding-bottom:4px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;
+      padding:14px 16px;margin-bottom:14px}
+.batch-head{display:flex;justify-content:space-between;align-items:baseline;
+            gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.batch-head h3{margin:0;font-size:15px}
+.batch-head .r{color:var(--muted);font-size:12px}
+.badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;
+       font-weight:650}
+.b-complete{background:#e6f4ea;color:var(--ok)}
+.b-running{background:#e7f0fb;color:var(--run)}
+.b-held{background:#fff3e2;color:var(--hold)}
+.b-aborted{background:#fde8e6;color:var(--bad)}
+.b-stopped{background:#fde8e6;color:var(--bad)}
+.b-pending{background:#eef1f4;color:var(--muted)}
+.gantt{position:relative;border:1px solid var(--line);border-radius:6px;
+       overflow:hidden;background:#fff}
+.row{display:grid;grid-template-columns:290px 1fr;border-bottom:1px solid
+     #eef1f4;min-height:22px}
+.row:last-child{border-bottom:none}
+.row .name{padding:3px 8px;font-size:11.5px;border-right:1px solid #eef1f4;
+           white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .name .eq{color:var(--muted)}
+.row .track{position:relative;height:22px;background:
+  repeating-linear-gradient(90deg,#fbfcfd 0 59px,#f2f5f8 59px 60px);}
+.bar{position:absolute;top:5px;height:12px;border-radius:2px;min-width:2px}
+.bar.RUNNING{background:var(--run)} .bar.COMPLETE{background:var(--done)}
+.bar.HELD,.bar.HOLDING{background:var(--hold)}
+.bar.ABORTED,.bar.ABORTING,.bar.STOPPED{background:var(--bad)}
+.bar.RESTARTING{background:#8a5cf6} .bar.IDLE{background:var(--idle)}
+.bar.STOPPING{background:#d97706}
+.mk{position:absolute;top:1px;width:2px;height:20px;background:var(--bad)}
+.mk.hold{background:var(--hold)} .mk.restart{background:#8a5cf6}
+.mk.fault{background:#d6336c;width:3px;border-radius:2px}
+.mk.cmd{background:#0b6bcb}
+.axis{display:grid;grid-template-columns:290px 1fr;font-size:10px;
+      color:var(--muted);padding-top:2px}
+.axis .ticks{position:relative;height:14px}
+.axis .t{position:absolute;transform:translateX(-50%)}
+.legend{display:flex;gap:14px;font-size:11px;color:var(--muted);
+        margin-top:6px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;
+          margin-right:4px;vertical-align:-1px}
+.grid{display:grid;grid-template-columns:1.35fr 1fr;gap:14px}
+table{border-collapse:collapse;width:100%;font-size:12px}
+th,td{text-align:left;padding:3px 8px;border-bottom:1px solid #eef1f4}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;
+   color:var(--muted)}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tree{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;
+      line-height:1.65}
+.tree .st{font-weight:700}
+.st-RUNNING{color:var(--run)} .st-COMPLETE{color:var(--done)}
+.st-HELD,.st-HOLDING{color:var(--hold)}
+.st-ABORTED,.st-ABORTING,.st-STOPPED{color:var(--bad)}
+.st-PENDING{color:var(--muted)}
+.lines td .dot{display:inline-block;width:8px;height:8px;border-radius:50%;
+               background:var(--idle);margin-right:5px}
+.lines td .dot.on{background:var(--run)}
+footer{color:var(--muted);font-size:11px;padding:0 26px 30px}
+a{color:var(--run);text-decoration:none} a:hover{text-decoration:underline}
+</style></head><body>
+<header><h1>Paint batch control &mdash; execution progress</h1>
+<div class='meta'>1 batch(es) &middot; sim clock 00:15:00.000 &middot; tick 100 ms</div></header><main>
+<h2>Batches</h2><div class='card'><table><tr><th>Batch</th><th>Recipe</th><th>Product</th><th>Lot</th><th>Queue</th><th>State</th><th>Started</th><th>Finished</th><th>Record</th></tr>
+<tr><td><b>B901</b></td><td>P-106 v1.0</td><td>MATTE-OLIVE</td><td>LOT-901</td><td>p5 #1</td><td><span class="badge b-held">HELD</span></td><td>00:00:00.000</td><td></td><td><a href=records/batch-B901.html>records/batch-B901.html</a></td></tr>
+</table></div>
+<h2>B901 &mdash; <span class="badge b-held">HELD</span></h2>
+<div class='card'>
+<div class='gantt'>
+<div class='row'>
+<div class='name'>FEED-RM-1-1 <span class='eq'>LETDOWN</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:0.033%;width:2.764%' title='FEED-RM-1-1 RUNNING 00:00:00.300-00:00:25.700'></div>
+<div class='bar COMPLETE' style='left:2.797%;width:0.400%' title='FEED-RM-1-1 COMPLETE 00:00:25.700-00:00:27.200'></div>
+</div></div>
+<div class='row'>
+<div class='name'>FEED-RM-2-2 <span class='eq'>LETDOWN</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:2.797%;width:1.850%' title='FEED-RM-2-2 RUNNING 00:00:25.700-00:00:42.700'></div>
+<div class='bar COMPLETE' style='left:4.646%;width:0.400%' title='FEED-RM-2-2 COMPLETE 00:00:42.700-00:00:44.200'></div>
+</div></div>
+<div class='row'>
+<div class='name'>FEED-RM-4-1 <span class='eq'>ADD-LINE</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:4.657%;width:2.046%' title='FEED-RM-4-1 RUNNING 00:00:42.800-00:01:01.600'></div>
+<div class='bar COMPLETE' style='left:6.703%;width:0.400%' title='FEED-RM-4-1 COMPLETE 00:01:01.600-00:01:03.100'></div>
+</div></div>
+<div class='row'>
+<div class='name'>COOK <span class='eq'>REACTOR-1</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:6.703%;width:12.133%' title='COOK RUNNING 00:01:01.600-00:02:53.100'></div>
+<div class='bar COMPLETE' style='left:18.836%;width:0.400%' title='COOK COMPLETE 00:02:53.100-00:02:54.600'></div>
+</div></div>
+<div class='row'>
+<div class='name'>QC <span class='eq'>REACTOR-1</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:18.836%;width:0.400%' title='QC RUNNING 00:02:53.100-00:02:53.500'></div>
+<div class='bar COMPLETE' style='left:18.879%;width:0.400%' title='QC COMPLETE 00:02:53.500-00:02:55.000'></div>
+</div></div>
+<div class='row'>
+<div class='name'>XFER <span class='eq'>REACT-OUT</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:18.890%;width:4.353%' title='XFER RUNNING 00:02:53.600-00:03:33.600'></div>
+<div class='bar COMPLETE' style='left:23.243%;width:0.400%' title='XFER COMPLETE 00:03:33.600-00:03:35.100'></div>
+</div></div>
+<div class='row'>
+<div class='name'>FEED-MILL-1 <span class='eq'>MILL-LINE</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:23.254%;width:6.104%' title='FEED-MILL-1 RUNNING 00:03:33.700-00:04:29.800'></div>
+<div class='bar COMPLETE' style='left:29.358%;width:0.400%' title='FEED-MILL-1 COMPLETE 00:04:29.800-00:04:31.418'></div>
+</div></div>
+<div class='row'>
+<div class='name'>GRIND-MILL-1 <span class='eq'>MILL-1</span></div>
+<div class='track'>
+<div class='bar RUNNING' style='left:29.358%;width:0.400%' title='GRIND-MILL-1 RUNNING 00:04:29.800-00:04:29.900'></div>
+<div class='bar HOLDING' style='left:29.369%;width:0.468%' title='GRIND-MILL-1 HOLDING 00:04:29.900-00:04:34.200'></div>
+<div class='bar HELD' style='left:29.837%;width:68.096%' title='GRIND-MILL-1 HELD 00:04:34.200-00:15:00.000'></div>
+<div class='mk fault' style='left:29.369%' title='phase_fault 00:04:29.900'></div>
+<div class='mk fault' style='left:29.369%' title='propagation 00:04:29.900'></div>
+</div></div>
+</div>
+<div class='axis'><div></div><div class='ticks'>
+<span class='t' style='left:0.00%'>00:00:00.000</span>
+<span class='t' style='left:12.50%'>00:01:54.875</span>
+<span class='t' style='left:25.00%'>00:03:49.750</span>
+<span class='t' style='left:37.50%'>00:05:44.625</span>
+<span class='t' style='left:50.00%'>00:07:39.500</span>
+<span class='t' style='left:62.50%'>00:09:34.375</span>
+<span class='t' style='left:75.00%'>00:11:29.250</span>
+<span class='t' style='left:87.50%'>00:13:24.125</span>
+<span class='t' style='left:100.00%'>00:15:19.000</span>
+</div></div>
+<div class='legend'><span><i style='background:var(--run)'></i>running</span><span><i style='background:var(--done)'></i>complete</span><span><i style='background:var(--hold)'></i>held</span><span><i style='background:#8a5cf6'></i>restarting</span><span><i style='background:var(--bad)'></i>aborted/stopped</span><span><i style='background:#d6336c'></i>fault</span><span><i style='background:#0b6bcb'></i>command</span></div>
+</div>
+<div class='grid'>
+<div>
+<h2>Recipe tree &mdash; B901</h2><div class='card tree'>
+<div><span class='st st-HELD'>&#10074; P-106</span> <span class='st-HELD'>HELD</span></div><div>&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; REACTION</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; CHARGE</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; FEED-RM-1-1</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; FEED-RM-2-2</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; FEED-RM-4-1</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; REACT-OP</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; COOK</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; QC</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; LETDOWN</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; TRANSFER</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; XFER</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;<span class='st st-HELD'>&#10074; GRIND</span> <span class='st-HELD'>HELD</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-COMPLETE'>&#9679; FEED-MILL-1</span> <span class='st-COMPLETE'>COMPLETE</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span class='st st-HELD'>&#10074; GRIND-MILL-1</span> <span class='st-HELD'>HELD</span></div>
+</div>
+</div>
+<div>
+<h2>Plant lines</h2><div class='card'><table class='lines'>
+<tr><th>Line</th><th>Holder</th><th>In transit</th></tr>
+<tr><td><span class='dot '></span>LETDOWN</td><td>&amp;mdash;</td><td class='n'>0.0 kg</td></tr>
+<tr><td><span class='dot '></span>ADD-LINE</td><td>&amp;mdash;</td><td class='n'>0.0 kg</td></tr>
+<tr><td><span class='dot '></span>REACT-OUT</td><td>&amp;mdash;</td><td class='n'>0.0 kg</td></tr>
+<tr><td><span class='dot '></span>MILL-LINE</td><td>B901</td><td class='n'>970.0 kg</td></tr>
+<tr><td><span class='dot '></span>FILL-LINE</td><td>&amp;mdash;</td><td class='n'>0.0 kg</td></tr>
+<tr><td><span class='dot '></span>WASTE-LINE</td><td>&amp;mdash;</td><td class='n'>0.0 kg</td></tr>
+</table></div>
+<h2>Vessels</h2><div class='card'><table>
+<tr><th>Tank</th><th class='n'>kg</th><th class='n'>temp</th><th>agitator</th><th>contents</th></tr>
+<tr><td>RM-1</td><td class='n'>59400.0</td><td class='n'>22.0</td><td>0.00</td><td>resin</td></tr>
+<tr><td>RM-2</td><td class='n'>49750.0</td><td class='n'>22.0</td><td>0.00</td><td>filler</td></tr>
+<tr><td>RM-3</td><td class='n'>20000.0</td><td class='n'>22.0</td><td>0.00</td><td>additive-A</td></tr>
+<tr><td>RM-4</td><td class='n'>19880.0</td><td class='n'>22.0</td><td>0.00</td><td>additive-B</td></tr>
+<tr><td>REACTOR-1</td><td class='n'>0.0</td><td class='n'>22.0</td><td>1.00</td><td></td></tr>
+<tr><td>REACTOR-2</td><td class='n'>0.0</td><td class='n'>22.0</td><td>0.00</td><td></td></tr>
+<tr><td>PREMIX-1</td><td class='n'>0.0</td><td class='n'>22.0</td><td>0.00</td><td></td></tr>
+<tr><td>PREMIX-2</td><td class='n'>0.0</td><td class='n'>22.0</td><td>0.00</td><td></td></tr>
+<tr><td>FINISH-1</td><td class='n'>970.0</td><td class='n'>47.1</td><td>0.00</td><td>resin</td></tr>
+<tr><td>FINISH-2</td><td class='n'>0.0</td><td class='n'>22.0</td><td>0.00</td><td></td></tr>
+<tr><td>PRODUCT</td><td class='n'>0.0</td><td class='n'>22.0</td><td>0.00</td><td></td></tr>
+<tr><td>WASTE</td><td class='n'>0.0</td><td class='n'>22.0</td><td>0.00</td><td></td></tr>
+</table></div>
+<h2>Faults injected</h2><div class='card'><table>
+<tr><td>00:01:40.000</td><td>machine_failed</td><td>MILL-1</td><td>mill trip, will not restart</td></tr>
+</table></div>
+<h2>Commands</h2><div class='card'><table>
+<tr><td>none</td></tr>
+</table></div></div></div>
+<h2>Verification</h2><div class='card'>
+<p><b>PASS</b> &mdash; 0 failure(s)</p>
+<div>&#10003; line_exclusivity</div>
+<div>&#10003; transitions</div>
+<div>&#10003; aggregation</div>
+<div>&#10003; command_legality</div>
+<div>&#10003; mass_balance</div>
+<div>&#10003; batch_sizes</div>
+<div>&#10003; final_states</div>
+<div>&#10003; resources_released</div>
+</div>
+</main><footer>Static snapshot generated from the deterministic simulation. Times are simulation time.</footer>
+</body></html>

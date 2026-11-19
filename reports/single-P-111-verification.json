@@ -1,0 +1,204 @@
+{
+  "scenario": "single P-111",
+  "ok": true,
+  "failures": [],
+  "checks": {
+    "line_exclusivity": {
+      "ok": true,
+      "detail": []
+    },
+    "transitions": {
+      "ok": true,
+      "detail": []
+    },
+    "aggregation": {
+      "ok": true,
+      "detail": []
+    },
+    "command_legality": {
+      "ok": true,
+      "detail": []
+    },
+    "mass_balance": {
+      "ok": true,
+      "detail": []
+    },
+    "batch_sizes": {
+      "ok": true,
+      "detail": []
+    },
+    "final_states": {
+      "ok": true,
+      "detail": []
+    },
+    "resources_released": {
+      "ok": true,
+      "detail": []
+    }
+  },
+  "transition_table": [
+    {
+      "batch": "P-111-B",
+      "phase": "FEED-RM-1-1",
+      "path": "P-111.REACTION.CHARGE.FEED-RM-1-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-111-B",
+      "phase": "FEED-RM-2-2",
+      "path": "P-111.REACTION.CHARGE.FEED-RM-2-2",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-111-B",
+      "phase": "COOK",
+      "path": "P-111.REACTION.REACT-OP.COOK",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-111-B",
+      "phase": "QC",
+      "path": "P-111.REACTION.REACT-OP.QC",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-111-B",
+      "phase": "XFER",
+      "path": "P-111.LETDOWN.TRANSFER.XFER",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-111-B",
+      "phase": "FEED-MILL",
+      "path": "P-111.MILL.MILL.FEED-MILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-111-B",
+      "phase": "GRIND",
+      "path": "P-111.MILL.MILL.GRIND",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-111-B",
+      "phase": "FILL",
+      "path": "P-111.FILL.FILL.FILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    }
+  ],
+  "batches": {
+    "P-111-B": {
+      "state": "COMPLETE",
+      "started": "",
+      "finished": "00:04:58.500",
+      "phases": [
+        "FEED-RM-1-1",
+        "FEED-RM-2-2",
+        "COOK",
+        "QC",
+        "XFER",
+        "FEED-MILL",
+        "GRIND",
+        "FILL"
+      ]
+    }
+  },
+  "stopped_reason": "all batches finished",
+  "duration": "00:04:58.500"
+}

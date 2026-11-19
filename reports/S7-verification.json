@@ -1,0 +1,126 @@
+{
+  "scenario": "S7 abort mid cook",
+  "ok": true,
+  "failures": [],
+  "checks": {
+    "line_exclusivity": {
+      "ok": true,
+      "detail": []
+    },
+    "transitions": {
+      "ok": true,
+      "detail": []
+    },
+    "aggregation": {
+      "ok": true,
+      "detail": []
+    },
+    "command_legality": {
+      "ok": true,
+      "detail": []
+    },
+    "mass_balance": {
+      "ok": true,
+      "detail": []
+    },
+    "batch_sizes": {
+      "ok": true,
+      "detail": []
+    },
+    "final_states": {
+      "ok": true,
+      "detail": []
+    },
+    "resources_released": {
+      "ok": true,
+      "detail": []
+    }
+  },
+  "transition_table": [
+    {
+      "batch": "B701",
+      "phase": "FEED-RM-1-1",
+      "path": "P-105.REACTION.CHARGE.FEED-RM-1-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B701",
+      "phase": "FEED-RM-3-1",
+      "path": "P-105.REACTION.CHARGE.FEED-RM-3-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "B701",
+      "phase": "COOK",
+      "path": "P-105.REACTION.REACT-OP.COOK",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "ABORTING"
+        ],
+        [
+          "ABORTING",
+          "ABORTED"
+        ]
+      ],
+      "expected": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "ABORTING"
+        ],
+        [
+          "ABORTING",
+          "ABORTED"
+        ]
+      ],
+      "ok": true,
+      "note": ""
+    }
+  ],
+  "batches": {
+    "B701": {
+      "state": "ABORTED",
+      "started": "",
+      "finished": "00:03:40.300",
+      "phases": [
+        "FEED-RM-1-1",
+        "FEED-RM-3-1",
+        "COOK"
+      ]
+    }
+  },
+  "stopped_reason": "all batches finished",
+  "duration": "00:03:40.300"
+}

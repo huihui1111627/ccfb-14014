@@ -1,0 +1,223 @@
+{
+  "scenario": "single P-105",
+  "ok": true,
+  "failures": [],
+  "checks": {
+    "line_exclusivity": {
+      "ok": true,
+      "detail": []
+    },
+    "transitions": {
+      "ok": true,
+      "detail": []
+    },
+    "aggregation": {
+      "ok": true,
+      "detail": []
+    },
+    "command_legality": {
+      "ok": true,
+      "detail": []
+    },
+    "mass_balance": {
+      "ok": true,
+      "detail": []
+    },
+    "batch_sizes": {
+      "ok": true,
+      "detail": []
+    },
+    "final_states": {
+      "ok": true,
+      "detail": []
+    },
+    "resources_released": {
+      "ok": true,
+      "detail": []
+    }
+  },
+  "transition_table": [
+    {
+      "batch": "P-105-B",
+      "phase": "FEED-RM-1-1",
+      "path": "P-105.REACTION.CHARGE.FEED-RM-1-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "FEED-RM-3-1",
+      "path": "P-105.REACTION.CHARGE.FEED-RM-3-1",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "COOK",
+      "path": "P-105.REACTION.REACT-OP.COOK",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "QC",
+      "path": "P-105.REACTION.REACT-OP.QC",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "XFER",
+      "path": "P-105.LETDOWN.TRANSFER.XFER",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "TINT",
+      "path": "P-105.TINT-MILL.TINT.TINT",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "FEED-MILL",
+      "path": "P-105.MILL.MILL.FEED-MILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "GRIND",
+      "path": "P-105.MILL.MILL.GRIND",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-105-B",
+      "phase": "FILL",
+      "path": "P-105.FILL.FILL.FILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    }
+  ],
+  "batches": {
+    "P-105-B": {
+      "state": "COMPLETE",
+      "started": "",
+      "finished": "00:09:03.700",
+      "phases": [
+        "FEED-RM-1-1",
+        "FEED-RM-3-1",
+        "COOK",
+        "QC",
+        "XFER",
+        "TINT",
+        "FEED-MILL",
+        "GRIND",
+        "FILL"
+      ]
+    }
+  },
+  "stopped_reason": "all batches finished",
+  "duration": "00:09:03.700"
+}

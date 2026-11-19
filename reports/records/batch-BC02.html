@@ -1,0 +1,352 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<title>Batch record BC02 - P-107</title>
+<style>
+:root { --ink:#1d232a; --muted:#66727d; --line:#d8dee4; --ok:#1a7f37;
+        --warn:#b35900; --bad:#b42318; --bg:#fbfcfd; }
+* { box-sizing:border-box; }
+body { font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+       "Helvetica Neue",Arial,sans-serif; color:var(--ink); background:#fff;
+       margin:0; padding:28px 34px; max-width:1180px; }
+h1 { font-size:22px; margin:0 0 2px; letter-spacing:-.2px; }
+h2 { font-size:15px; margin:26px 0 8px; padding-bottom:4px;
+     border-bottom:2px solid var(--ink); text-transform:uppercase;
+     letter-spacing:.06em; }
+h3 { font-size:13px; margin:16px 0 6px; }
+.sub { color:var(--muted); margin-bottom:16px; }
+.meta { display:grid; grid-template-columns:repeat(4,1fr); gap:8px 22px;
+        margin:12px 0 4px; }
+.meta div { border-left:3px solid var(--line); padding-left:8px; }
+.meta b { display:block; font-size:11px; color:var(--muted);
+          text-transform:uppercase; letter-spacing:.05em; font-weight:600; }
+.meta span { font-size:14px; }
+table { border-collapse:collapse; width:100%; margin:6px 0 4px; }
+th,td { text-align:left; padding:4px 8px; border-bottom:1px solid var(--line);
+        vertical-align:top; }
+th { background:#f2f5f8; font-size:11px; text-transform:uppercase;
+     letter-spacing:.05em; color:var(--muted); }
+td.num { text-align:right; font-variant-numeric:tabular-nums; }
+tr:nth-child(even) td { background:#fafbfc; }
+.badge { display:inline-block; padding:1px 7px; border-radius:9px;
+         font-size:11px; font-weight:600; letter-spacing:.02em; }
+.ok { background:#e6f4ea; color:var(--ok); }
+.warn { background:#fff4e5; color:var(--warn); }
+.bad { background:#fde8e6; color:var(--bad); }
+.state { font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+         font-size:12px; }
+.state.ok2 { color:var(--ok); } .state.held { color:var(--warn); }
+.state.bad2 { color:var(--bad); }
+.summary { display:grid; grid-template-columns:repeat(5,1fr); gap:10px;
+           margin:10px 0; }
+.card { border:1px solid var(--line); border-radius:6px; padding:8px 10px; }
+.card b { display:block; font-size:20px; line-height:1.2; }
+.card span { font-size:11px; color:var(--muted); text-transform:uppercase;
+             letter-spacing:.05em; }
+.trans td { font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+            font-size:12px; }
+footer { margin-top:28px; color:var(--muted); font-size:11px;
+         border-top:1px solid var(--line); padding-top:8px; }
+.pass { color:var(--ok); font-weight:700; }
+.fail { color:var(--bad); font-weight:700; }
+@media print { body{padding:0;max-width:none;} h2{page-break-after:avoid;}
+               table{page-break-inside:auto;} tr{page-break-inside:avoid;} }
+</style></head><body>
+<h1>Batch record &nbsp;<span class='state'>BC02</span></h1>
+<div class='sub'>Paint batch control &mdash; ISA-88 recipe execution record</div>
+<div class='meta'>
+<div><b>Recipe</b><span>P-107 v1.2 &ndash; Clearcoat</span></div>
+<div><b>Product</b><span>CLEARCOAT</span></div>
+<div><b>Lot</b><span>LOT-C02</span></div>
+<div><b>Batch size</b><span>600 kg</span></div>
+<div><b>Started</b><span>00:00:00.000</span></div>
+<div><b>Finished</b><span>00:05:51.900</span></div>
+<div><b>Final state</b><span><span class="badge ok">COMPLETE</span></span></div>
+<div><b>Priority / queue</b><span>p6 / #2</span></div>
+</div>
+<h2>Summary</h2><div class='summary'>
+<div class='card'><b>8</b><span>Phases</span></div>
+<div class='card'><b>1</b><span>Holds</span></div>
+<div class='card'><b>0</b><span>Faults</span></div>
+<div class='card'><b>0</b><span>Alarms</span></div>
+<div class='card'><b>5</b><span>Transfers</span></div>
+</div>
+<p>verification: <span class='pass'>PASS</span> 
+</p>
+<h2>Phase state transitions</h2>
+<p class='sub'>Every phase, its equipment, the propagation rule it was written with, every transition with time and reason.</p>
+<table class='trans'><tr><th>Phase</th><th>Equipment</th><th>Prop.</th><th>Final</th><th>Transitions (time - from - to - reason)</th></tr>
+<tr><td>P-107.REACTION.CHARGE.FEED-RM-1-1</td><td>LETDOWN</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:00:56.900 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:01:19.400 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+<tr><td>P-107.REACTION.CHARGE.FEED-RM-4-1</td><td>ADD-LINE</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:01:19.500 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:01:35.000 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+<tr><td>P-107.REACTION.REACT-OP.COOK</td><td>REACTOR-2</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:01:35.000 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:02:00.000 <span class='state'>RUNNING</span>&rarr;<span class='state'>HOLDING</span> <i>line changeover on the filler</i> &rarr; 00:02:01.100 <span class='state'>HOLDING</span>&rarr;<span class='state'>HELD</span> <i>hold sequence complete</i> &rarr; 00:03:20.000 <span class='state'>HELD</span>&rarr;<span class='state'>RESTARTING</span> <i>line ready</i> &rarr; 00:03:21.100 <span class='state'>RESTARTING</span>&rarr;<span class='state'>RUNNING</span> <i>restart sequence complete</i> &rarr; 00:03:56.800 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+<tr><td>P-107.REACTION.REACT-OP.QC</td><td>REACTOR-2</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:03:56.800 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:03:57.200 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+<tr><td>P-107.LETDOWN.TRANSFER.XFER</td><td>REACT-OUT</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:03:57.300 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:04:24.300 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+<tr><td>P-107.POLISH.FEED-MILL-2</td><td>MILL-LINE</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:04:24.400 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:05:01.000 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+<tr><td>P-107.POLISH.GRIND-MILL-2</td><td>MILL-2</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:05:01.000 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:05:20.400 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+<tr><td>P-107.FILL.FILL.FILL</td><td>FILL-LINE</td><td>operation</td><td><span class="badge ok">COMPLETE</span></td><td>00:05:20.500 <span class='state'>IDLE</span>&rarr;<span class='state'>RUNNING</span> <i>sequence</i> &rarr; 00:05:51.900 <span class='state'>RUNNING</span>&rarr;<span class='state'>COMPLETE</span> <i>operations complete</i></td></tr>
+</table>
+<h2>Operator commands</h2>
+<table><tr><th>Time</th><th>Command</th><th>Target</th><th>Result</th><th>Reason</th></tr>
+<tr><td>00:02:00.000</td><td>HOLD</td><td>[&#x27;P-107.REACTION.REACT-OP.COOK&#x27;]</td><td><span class='badge ok'>ACCEPTED</span></td><td>line changeover on the filler</td></tr>
+<tr><td>00:03:20.000</td><td>RESTART</td><td>[&#x27;P-107.REACTION.REACT-OP.COOK&#x27;]</td><td><span class='badge ok'>ACCEPTED</span></td><td>line ready</td></tr>
+</table>
+<h2>Material movements</h2>
+<p class='sub'>Every transfer through a shared line, as recorded by the line itself. Each line carries one batch at a time.</p>
+<table><tr><th>Line</th><th>From</th><th>To</th><th>Start</th><th>End</th><th class='num'>kg</th><th>Batch</th><th>Material</th></tr>
+<tr><td>LETDOWN</td><td>RM-1</td><td>REACTOR-2</td><td>00:01:04.500</td><td>00:01:18.700</td><td class='num'>500.0</td><td>BC02</td><td>resin</td></tr>
+<tr><td>ADD-LINE</td><td>RM-4</td><td>REACTOR-2</td><td>00:01:26.100</td><td>00:01:32.700</td><td class='num'>80.0</td><td>BC02</td><td>additive-B</td></tr>
+<tr><td>REACT-OUT</td><td>REACTOR-2</td><td>PREMIX-2</td><td>00:04:04.400</td><td>00:04:23.700</td><td class='num'>580.0</td><td>BC02</td><td>resin</td></tr>
+<tr><td>MILL-LINE</td><td>PREMIX-2</td><td>FINISH-2</td><td>00:04:31.500</td><td>00:05:00.400</td><td class='num'>580.0</td><td>BC02</td><td>resin</td></tr>
+<tr><td>FILL-LINE</td><td>FINISH-2</td><td>PRODUCT</td><td>00:05:28.100</td><td>00:05:51.200</td><td class='num'>580.0</td><td>BC02</td><td>resin</td></tr>
+</table>
+<h2>Shared-resource reservations</h2>
+<table><tr><th>Time</th><th>Action</th><th>Resource</th><th>Batch</th></tr>
+<tr><td>00:00:00.200</td><td><span class='badge ok'>ACQUIRE</span></td><td>REACTOR-2</td><td>BC02</td></tr>
+<tr><td>00:00:56.900</td><td><span class='badge ok'>ACQUIRE</span></td><td>LETDOWN</td><td>BC02</td></tr>
+<tr><td>00:01:19.400</td><td><span class='badge warn'>RELEASE</span></td><td>LETDOWN</td><td>BC02</td></tr>
+<tr><td>00:01:19.500</td><td><span class='badge ok'>ACQUIRE</span></td><td>ADD-LINE</td><td>BC02</td></tr>
+<tr><td>00:01:35.000</td><td><span class='badge warn'>RELEASE</span></td><td>ADD-LINE</td><td>BC02</td></tr>
+<tr><td>00:03:57.300</td><td><span class='badge ok'>ACQUIRE</span></td><td>REACT-OUT</td><td>BC02</td></tr>
+<tr><td>00:04:24.300</td><td><span class='badge warn'>RELEASE</span></td><td>REACT-OUT</td><td>BC02</td></tr>
+<tr><td>00:04:24.300</td><td><span class='badge warn'>RELEASE</span></td><td>REACTOR-2</td><td>BC02</td></tr>
+<tr><td>00:04:24.400</td><td><span class='badge ok'>ACQUIRE</span></td><td>MILL-LINE</td><td>BC02</td></tr>
+<tr><td>00:04:24.400</td><td><span class='badge ok'>ACQUIRE</span></td><td>MILL-2</td><td>BC02</td></tr>
+<tr><td>00:05:20.400</td><td><span class='badge warn'>RELEASE</span></td><td>MILL-LINE</td><td>BC02</td></tr>
+<tr><td>00:05:20.400</td><td><span class='badge warn'>RELEASE</span></td><td>MILL-2</td><td>BC02</td></tr>
+<tr><td>00:05:20.500</td><td><span class='badge ok'>ACQUIRE</span></td><td>FILL-LINE</td><td>BC02</td></tr>
+<tr><td>00:05:51.900</td><td><span class='badge warn'>RELEASE</span></td><td>FILL-LINE</td><td>BC02</td></tr>
+</table>
+<h2>Faults and alarms</h2>
+<p class='sub'>None.</p>
+<h2>Final process values</h2>
+<table><tr><th>Tank</th><th class='num'>kg</th><th class='num'>temp &deg;C</th><th>Contents</th></tr>
+<tr><td>RM-1</td><td class='num'>57500.0</td><td class='num'>22.0</td><td>resin</td></tr>
+<tr><td>RM-2</td><td class='num'>49500.0</td><td class='num'>22.0</td><td>filler</td></tr>
+<tr><td>RM-3</td><td class='num'>20000.0</td><td class='num'>22.0</td><td>additive-A</td></tr>
+<tr><td>RM-4</td><td class='num'>19840.0</td><td class='num'>22.0</td><td>additive-B</td></tr>
+<tr><td>REACTOR-1</td><td class='num'>600.0</td><td class='num'>22.0</td><td>resin</td></tr>
+<tr><td>REACTOR-2</td><td class='num'>580.0</td><td class='num'>45.0</td><td>resin</td></tr>
+<tr><td>PREMIX-1</td><td class='num'>1086.0</td><td class='num'>56.8</td><td>resin</td></tr>
+<tr><td>PREMIX-2</td><td class='num'>0.0</td><td class='num'>22.0</td><td></td></tr>
+<tr><td>FINISH-1</td><td class='num'>354.0</td><td class='num'>56.8</td><td>resin</td></tr>
+<tr><td>FINISH-2</td><td class='num'>0.0</td><td class='num'>22.0</td><td></td></tr>
+<tr><td>PRODUCT</td><td class='num'>580.0</td><td class='num'>44.9</td><td>resin</td></tr>
+<tr><td>WASTE</td><td class='num'>0.0</td><td class='num'>22.0</td><td></td></tr>
+</table>
+<h2>Event log</h2>
+<p class='sub'>213 events</p>
+<table><tr><th>Time</th><th>Category</th><th>Event</th><th>Detail</th></tr>
+<tr><td>00:00:00.000</td><td>batch</td><td>batch_created</td><td><span class='state'>{&quot;recipe&quot;: &quot;P-107&quot;, &quot;lot&quot;: &quot;LOT-C02&quot;, &quot;batch_size_kg&quot;: 600.0, &quot;priority&quot;: 6, &quot;scale&quot;: 1.0}</span></td></tr>
+<tr><td>00:00:00.000</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107&quot;, &quot;element_kind&quot;: &quot;procedure&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:00:00.100</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:00:00.100</td><td>resource</td><td>request</td><td><span class='state'>{&quot;resources&quot;: [&quot;REACTOR-2&quot;], &quot;priority&quot;: 3, &quot;why&quot;: &quot;P-107.REACTION&quot;}</span></td></tr>
+<tr><td>00:00:00.200</td><td>resource</td><td>grant</td><td><span class='state'>{&quot;resource&quot;: &quot;REACTOR-2&quot;, &quot;why&quot;: &quot;P-107.REACTION&quot;}</span></td></tr>
+<tr><td>00:00:00.200</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:00:00.200</td><td>resource</td><td>request</td><td><span class='state'>{&quot;resources&quot;: [&quot;LETDOWN&quot;], &quot;priority&quot;: 2, &quot;why&quot;: &quot;P-107.REACTION.CHARGE&quot;}</span></td></tr>
+<tr><td>00:00:56.900</td><td>resource</td><td>grant</td><td><span class='state'>{&quot;resource&quot;: &quot;LETDOWN&quot;, &quot;why&quot;: &quot;P-107.REACTION.CHARGE&quot;}</span></td></tr>
+<tr><td>00:00:56.900</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:00:56.900</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:00:56.900</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;phase_name&quot;: &quot;FEED-RM-1-1&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:00:57.000</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;valve&quot;: &quot;V-RM-1&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:00:59.500</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;valve V-RM-1 open&quot;}</span></td></tr>
+<tr><td>00:00:59.600</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;valve&quot;: &quot;V-LD-R2&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:01:02.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;valve V-LD-R2 open&quot;}</span></td></tr>
+<tr><td>00:01:02.200</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;pump&quot;: &quot;P-LD&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:01:04.200</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;pump P-LD running&quot;}</span></td></tr>
+<tr><td>00:01:04.300</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;pump&quot;: &quot;P-LD&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:01:04.300</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;pump P-LD running&quot;}</span></td></tr>
+<tr><td>00:01:04.400</td><td>process</td><td>transfer_start</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;line&quot;: &quot;LETDOWN&quot;, &quot;source&quot;: &quot;RM-1&quot;, &quot;target&quot;: &quot;REACTOR-2&quot;, &quot;kg&quot;: 500.0}</span></td></tr>
+<tr><td>00:01:18.800</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;pump&quot;: &quot;P-LD&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:01:18.800</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;pump P-LD stopped&quot;}</span></td></tr>
+<tr><td>00:01:18.900</td><td>process</td><td>transfer_done</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;line&quot;: &quot;LETDOWN&quot;, &quot;kg&quot;: 500.0}</span></td></tr>
+<tr><td>00:01:18.900</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;transferred 500.0kg via LETDOWN&quot;}</span></td></tr>
+<tr><td>00:01:19.000</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;pump&quot;: &quot;P-LD&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:01:19.000</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;pump P-LD stopped&quot;}</span></td></tr>
+<tr><td>00:01:19.100</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;valve&quot;: &quot;V-RM-1&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:01:19.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;valve V-RM-1 closed&quot;}</span></td></tr>
+<tr><td>00:01:19.200</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;valve&quot;: &quot;V-LD-R2&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:01:19.200</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;text&quot;: &quot;valve V-LD-R2 closed&quot;}</span></td></tr>
+<tr><td>00:01:19.400</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;phase_name&quot;: &quot;FEED-RM-1-1&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:01:19.400</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:01:19.400</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-1-1&quot;}</span></td></tr>
+<tr><td>00:01:19.400</td><td>resource</td><td>release</td><td><span class='state'>{&quot;resource&quot;: &quot;LETDOWN&quot;, &quot;reason&quot;: &quot;P-107.REACTION.CHARGE&quot;}</span></td></tr>
+<tr><td>00:01:19.400</td><td>resource</td><td>request</td><td><span class='state'>{&quot;resources&quot;: [&quot;ADD-LINE&quot;], &quot;priority&quot;: 3, &quot;why&quot;: &quot;P-107.REACTION.CHARGE&quot;}</span></td></tr>
+<tr><td>00:01:19.500</td><td>resource</td><td>grant</td><td><span class='state'>{&quot;resource&quot;: &quot;ADD-LINE&quot;, &quot;why&quot;: &quot;P-107.REACTION.CHARGE&quot;}</span></td></tr>
+<tr><td>00:01:19.500</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:01:19.500</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:01:19.500</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;phase_name&quot;: &quot;FEED-RM-4-1&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:01:19.600</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;valve&quot;: &quot;V-RM-4&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:01:22.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;valve V-RM-4 open&quot;}</span></td></tr>
+<tr><td>00:01:22.200</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;valve&quot;: &quot;V-ADD-R2&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:01:24.700</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;valve V-ADD-R2 open&quot;}</span></td></tr>
+<tr><td>00:01:24.800</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;pump&quot;: &quot;P-ADD&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:01:25.800</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;pump P-ADD running&quot;}</span></td></tr>
+<tr><td>00:01:25.900</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;pump&quot;: &quot;P-ADD&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:01:25.900</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;pump P-ADD running&quot;}</span></td></tr>
+<tr><td>00:01:26.000</td><td>process</td><td>transfer_start</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;line&quot;: &quot;ADD-LINE&quot;, &quot;source&quot;: &quot;RM-4&quot;, &quot;target&quot;: &quot;REACTOR-2&quot;, &quot;kg&quot;: 80.0}</span></td></tr>
+<tr><td>00:01:32.800</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;pump&quot;: &quot;P-ADD&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:01:33.600</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;pump P-ADD stopped&quot;}</span></td></tr>
+<tr><td>00:01:33.700</td><td>process</td><td>transfer_done</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;line&quot;: &quot;ADD-LINE&quot;, &quot;kg&quot;: 80.0}</span></td></tr>
+<tr><td>00:01:33.700</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;transferred 80.0kg via ADD-LINE&quot;}</span></td></tr>
+<tr><td>00:01:33.800</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;pump&quot;: &quot;P-ADD&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:01:34.600</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;pump P-ADD stopped&quot;}</span></td></tr>
+<tr><td>00:01:34.700</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;valve&quot;: &quot;V-RM-4&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:01:34.700</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;valve V-RM-4 closed&quot;}</span></td></tr>
+<tr><td>00:01:34.800</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;valve&quot;: &quot;V-ADD-R2&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:01:34.800</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;text&quot;: &quot;valve V-ADD-R2 closed&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;phase_name&quot;: &quot;FEED-RM-4-1&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.CHARGE.FEED-RM-4-1&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>resource</td><td>release</td><td><span class='state'>{&quot;resource&quot;: &quot;ADD-LINE&quot;, &quot;reason&quot;: &quot;P-107.REACTION.CHARGE&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.CHARGE&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:01:35.000</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;phase_name&quot;: &quot;COOK&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:01:35.100</td><td>process</td><td>agitator</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;tank&quot;: &quot;REACTOR-2&quot;, &quot;on&quot;: true}</span></td></tr>
+<tr><td>00:01:35.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;agitator REACTOR-2 on&quot;}</span></td></tr>
+<tr><td>00:01:35.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;agitated REACTOR-2&quot;}</span></td></tr>
+<tr><td>00:01:35.200</td><td>process</td><td>heater</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;tank&quot;: &quot;REACTOR-2&quot;, &quot;on&quot;: true, &quot;setpoint_c&quot;: 45.0}</span></td></tr>
+<tr><td>00:02:00.000</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;phase_name&quot;: &quot;COOK&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;HOLDING&quot;, &quot;reason&quot;: &quot;line changeover on the filler&quot;}</span></td></tr>
+<tr><td>00:02:00.000</td><td>command</td><td>batch_command</td><td><span class='state'>{&quot;command&quot;: &quot;HOLD&quot;, &quot;accepted&quot;: true, &quot;reason&quot;: &quot;line changeover on the filler&quot;, &quot;source&quot;: &quot;operator&quot;, &quot;targets&quot;: [&quot;P-107.REACTION.REACT-OP.COOK&quot;]}</span></td></tr>
+<tr><td>00:02:00.100</td><td>process</td><td>agitator</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;tank&quot;: &quot;REACTOR-2&quot;, &quot;on&quot;: false}</span></td></tr>
+<tr><td>00:02:00.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;agitator REACTOR-2 off&quot;}</span></td></tr>
+<tr><td>00:02:00.200</td><td>process</td><td>heater</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;tank&quot;: &quot;REACTOR-2&quot;, &quot;on&quot;: false, &quot;watts&quot;: 0.0}</span></td></tr>
+<tr><td>00:02:01.100</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;phase_name&quot;: &quot;COOK&quot;, &quot;frm&quot;: &quot;HOLDING&quot;, &quot;to&quot;: &quot;HELD&quot;, &quot;reason&quot;: &quot;hold sequence complete&quot;}</span></td></tr>
+<tr><td>00:03:20.000</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;phase_name&quot;: &quot;COOK&quot;, &quot;frm&quot;: &quot;HELD&quot;, &quot;to&quot;: &quot;RESTARTING&quot;, &quot;reason&quot;: &quot;line ready&quot;}</span></td></tr>
+<tr><td>00:03:20.000</td><td>command</td><td>batch_command</td><td><span class='state'>{&quot;command&quot;: &quot;RESTART&quot;, &quot;accepted&quot;: true, &quot;reason&quot;: &quot;line ready&quot;, &quot;source&quot;: &quot;operator&quot;, &quot;targets&quot;: [&quot;P-107.REACTION.REACT-OP.COOK&quot;]}</span></td></tr>
+<tr><td>00:03:20.100</td><td>process</td><td>agitator</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;tank&quot;: &quot;REACTOR-2&quot;, &quot;on&quot;: true}</span></td></tr>
+<tr><td>00:03:20.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;agitator REACTOR-2 on&quot;}</span></td></tr>
+<tr><td>00:03:20.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;agitated REACTOR-2&quot;}</span></td></tr>
+<tr><td>00:03:21.100</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;phase_name&quot;: &quot;COOK&quot;, &quot;frm&quot;: &quot;RESTARTING&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;restart sequence complete&quot;}</span></td></tr>
+<tr><td>00:03:36.400</td><td>process</td><td>heater</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;tank&quot;: &quot;REACTOR-2&quot;, &quot;on&quot;: false, &quot;temp_c&quot;: 45.02}</span></td></tr>
+<tr><td>00:03:36.400</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;REACTOR-2 reached 45.0C&quot;}</span></td></tr>
+<tr><td>00:03:56.500</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;agitated REACTOR-2&quot;}</span></td></tr>
+<tr><td>00:03:56.700</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;text&quot;: &quot;temperature check REACTOR-2: 45.0C ok&quot;}</span></td></tr>
+<tr><td>00:03:56.800</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;phase_name&quot;: &quot;COOK&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:03:56.800</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:03:56.800</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.COOK&quot;}</span></td></tr>
+<tr><td>00:03:56.800</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:03:56.800</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:03:56.800</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;phase_name&quot;: &quot;QC&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:03:56.900</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;text&quot;: &quot;temperature check REACTOR-2: 45.0C ok&quot;}</span></td></tr>
+<tr><td>00:03:57.100</td><td>process</td><td>quality</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;test&quot;: &quot;cook-REACTOR-2&quot;, &quot;result&quot;: &quot;PASS&quot;}</span></td></tr>
+<tr><td>00:03:57.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;text&quot;: &quot;QC cook-REACTOR-2: PASS&quot;}</span></td></tr>
+<tr><td>00:03:57.200</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;phase_name&quot;: &quot;QC&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:03:57.200</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:03:57.200</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.REACTION.REACT-OP.QC&quot;}</span></td></tr>
+<tr><td>00:03:57.200</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION.REACT-OP&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:03:57.200</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.REACTION&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:03:57.200</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.LETDOWN&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:03:57.200</td><td>resource</td><td>request</td><td><span class='state'>{&quot;resources&quot;: [&quot;REACT-OUT&quot;], &quot;priority&quot;: 3, &quot;why&quot;: &quot;P-107.LETDOWN&quot;}</span></td></tr>
+<tr><td>00:03:57.300</td><td>resource</td><td>grant</td><td><span class='state'>{&quot;resource&quot;: &quot;REACT-OUT&quot;, &quot;why&quot;: &quot;P-107.LETDOWN&quot;}</span></td></tr>
+<tr><td>00:03:57.300</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.LETDOWN.TRANSFER&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:03:57.300</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:03:57.300</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:03:57.300</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;phase_name&quot;: &quot;XFER&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:03:57.400</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;valve&quot;: &quot;V-R2-OUT&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:03:59.900</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;valve V-R2-OUT open&quot;}</span></td></tr>
+<tr><td>00:04:00.000</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;valve&quot;: &quot;V-PM2-IN&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:04:02.500</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;valve V-PM2-IN open&quot;}</span></td></tr>
+<tr><td>00:04:02.600</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;pump&quot;: &quot;P-RO&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:04:04.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;pump P-RO running&quot;}</span></td></tr>
+<tr><td>00:04:04.200</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;pump&quot;: &quot;P-RO&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:04:04.200</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;pump P-RO running&quot;}</span></td></tr>
+<tr><td>00:04:04.300</td><td>process</td><td>transfer_start</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;line&quot;: &quot;REACT-OUT&quot;, &quot;source&quot;: &quot;REACTOR-2&quot;, &quot;target&quot;: &quot;PREMIX-2&quot;, &quot;kg&quot;: 580.0}</span></td></tr>
+<tr><td>00:04:23.800</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;pump&quot;: &quot;P-RO&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:04:23.800</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;pump P-RO stopped&quot;}</span></td></tr>
+<tr><td>00:04:23.900</td><td>process</td><td>transfer_done</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;line&quot;: &quot;REACT-OUT&quot;, &quot;kg&quot;: 580.0}</span></td></tr>
+<tr><td>00:04:23.900</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;transferred 580.0kg via REACT-OUT&quot;}</span></td></tr>
+<tr><td>00:04:24.000</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;pump&quot;: &quot;P-RO&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:04:24.000</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;pump P-RO stopped&quot;}</span></td></tr>
+<tr><td>00:04:24.100</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;valve&quot;: &quot;V-R2-OUT&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:04:24.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;valve V-R2-OUT closed&quot;}</span></td></tr>
+<tr><td>00:04:24.200</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;valve&quot;: &quot;V-PM2-IN&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:04:24.200</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;text&quot;: &quot;valve V-PM2-IN closed&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;phase_name&quot;: &quot;XFER&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.LETDOWN.TRANSFER.XFER&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.LETDOWN.TRANSFER&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>resource</td><td>release</td><td><span class='state'>{&quot;resource&quot;: &quot;REACT-OUT&quot;, &quot;reason&quot;: &quot;P-107.LETDOWN&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>resource</td><td>release</td><td><span class='state'>{&quot;resource&quot;: &quot;REACTOR-2&quot;, &quot;reason&quot;: &quot;P-107.LETDOWN&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.LETDOWN&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:04:24.300</td><td>resource</td><td>request</td><td><span class='state'>{&quot;resources&quot;: [&quot;MILL-LINE&quot;, &quot;MILL-2&quot;], &quot;priority&quot;: 5, &quot;why&quot;: &quot;P-107.POLISH&quot;}</span></td></tr>
+<tr><td>00:04:24.400</td><td>resource</td><td>grant</td><td><span class='state'>{&quot;resource&quot;: &quot;MILL-LINE&quot;, &quot;why&quot;: &quot;P-107.POLISH&quot;}</span></td></tr>
+<tr><td>00:04:24.400</td><td>resource</td><td>grant</td><td><span class='state'>{&quot;resource&quot;: &quot;MILL-2&quot;, &quot;why&quot;: &quot;P-107.POLISH&quot;}</span></td></tr>
+<tr><td>00:04:24.400</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:04:24.400</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:04:24.400</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;phase_name&quot;: &quot;FEED-MILL-2&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:04:24.500</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;valve&quot;: &quot;V-PM2-OUT&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:04:27.000</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;valve V-PM2-OUT open&quot;}</span></td></tr>
+<tr><td>00:04:27.100</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;valve&quot;: &quot;V-MILL-IN&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:04:29.600</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;valve V-MILL-IN open&quot;}</span></td></tr>
+<tr><td>00:04:29.700</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;pump&quot;: &quot;P-MILL&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:04:31.200</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;pump P-MILL running&quot;}</span></td></tr>
+<tr><td>00:04:31.300</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;pump&quot;: &quot;P-MILL&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:04:31.300</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;pump P-MILL running&quot;}</span></td></tr>
+<tr><td>00:04:31.400</td><td>process</td><td>transfer_start</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;line&quot;: &quot;MILL-LINE&quot;, &quot;source&quot;: &quot;PREMIX-2&quot;, &quot;target&quot;: &quot;FINISH-2&quot;, &quot;kg&quot;: 580.0}</span></td></tr>
+<tr><td>00:05:00.500</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;pump&quot;: &quot;P-MILL&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:05:00.500</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;pump P-MILL stopped&quot;}</span></td></tr>
+<tr><td>00:05:00.600</td><td>process</td><td>transfer_done</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;line&quot;: &quot;MILL-LINE&quot;, &quot;kg&quot;: 580.0}</span></td></tr>
+<tr><td>00:05:00.600</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;transferred 580.0kg via MILL-LINE&quot;}</span></td></tr>
+<tr><td>00:05:00.700</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;pump&quot;: &quot;P-MILL&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:05:00.700</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;pump P-MILL stopped&quot;}</span></td></tr>
+<tr><td>00:05:00.800</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;valve&quot;: &quot;V-MILL-IN&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:05:00.800</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;valve V-MILL-IN closed&quot;}</span></td></tr>
+<tr><td>00:05:00.900</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;valve&quot;: &quot;V-PM2-OUT&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:05:00.900</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;text&quot;: &quot;valve V-PM2-OUT closed&quot;}</span></td></tr>
+<tr><td>00:05:01.000</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;phase_name&quot;: &quot;FEED-MILL-2&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:05:01.000</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:05:01.000</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.FEED-MILL-2&quot;}</span></td></tr>
+<tr><td>00:05:01.000</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:05:01.000</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:05:01.000</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;phase_name&quot;: &quot;GRIND-MILL-2&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:05:01.100</td><td>process</td><td>machine</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;machine&quot;: &quot;MILL-2&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:05:06.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;text&quot;: &quot;MILL-2 running&quot;}</span></td></tr>
+<tr><td>00:05:16.200</td><td>process</td><td>machine</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;machine&quot;: &quot;MILL-2&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:05:20.200</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;text&quot;: &quot;MILL-2 stopped&quot;}</span></td></tr>
+<tr><td>00:05:20.300</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;text&quot;: &quot;milled MILL-2&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;phase_name&quot;: &quot;GRIND-MILL-2&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.POLISH.GRIND-MILL-2&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>resource</td><td>release</td><td><span class='state'>{&quot;resource&quot;: &quot;MILL-LINE&quot;, &quot;reason&quot;: &quot;P-107.POLISH&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>resource</td><td>release</td><td><span class='state'>{&quot;resource&quot;: &quot;MILL-2&quot;, &quot;reason&quot;: &quot;P-107.POLISH&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.POLISH&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.FILL&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:05:20.400</td><td>resource</td><td>request</td><td><span class='state'>{&quot;resources&quot;: [&quot;FILL-LINE&quot;], &quot;priority&quot;: 7, &quot;why&quot;: &quot;P-107.FILL&quot;}</span></td></tr>
+<tr><td>00:05:20.500</td><td>resource</td><td>grant</td><td><span class='state'>{&quot;resource&quot;: &quot;FILL-LINE&quot;, &quot;why&quot;: &quot;P-107.FILL&quot;}</span></td></tr>
+<tr><td>00:05:20.500</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.FILL.FILL&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:05:20.500</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;RUNNING&quot;}</span></td></tr>
+<tr><td>00:05:20.500</td><td>state</td><td>element_start</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;IDLE&quot;}</span></td></tr>
+<tr><td>00:05:20.500</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;phase_name&quot;: &quot;FILL&quot;, &quot;frm&quot;: &quot;IDLE&quot;, &quot;to&quot;: &quot;RUNNING&quot;, &quot;reason&quot;: &quot;sequence&quot;}</span></td></tr>
+<tr><td>00:05:20.600</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;valve&quot;: &quot;V-F2-OUT&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:05:23.100</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;valve V-F2-OUT open&quot;}</span></td></tr>
+<tr><td>00:05:23.200</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;valve&quot;: &quot;V-FILL&quot;, &quot;command&quot;: &quot;OPEN&quot;}</span></td></tr>
+<tr><td>00:05:26.200</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;valve V-FILL open&quot;}</span></td></tr>
+<tr><td>00:05:26.300</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;pump&quot;: &quot;P-FILL&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:05:27.800</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;pump P-FILL running&quot;}</span></td></tr>
+<tr><td>00:05:27.900</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;pump&quot;: &quot;P-FILL&quot;, &quot;command&quot;: &quot;ON&quot;}</span></td></tr>
+<tr><td>00:05:27.900</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;pump P-FILL running&quot;}</span></td></tr>
+<tr><td>00:05:28.000</td><td>process</td><td>transfer_start</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;line&quot;: &quot;FILL-LINE&quot;, &quot;source&quot;: &quot;FINISH-2&quot;, &quot;target&quot;: &quot;PRODUCT&quot;, &quot;kg&quot;: 580.0}</span></td></tr>
+<tr><td>00:05:51.300</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;pump&quot;: &quot;P-FILL&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:05:51.300</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;pump P-FILL stopped&quot;}</span></td></tr>
+<tr><td>00:05:51.400</td><td>process</td><td>transfer_done</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;line&quot;: &quot;FILL-LINE&quot;, &quot;kg&quot;: 580.0}</span></td></tr>
+<tr><td>00:05:51.400</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;transferred 580.0kg via FILL-LINE&quot;}</span></td></tr>
+<tr><td>00:05:51.500</td><td>process</td><td>pump</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;pump&quot;: &quot;P-FILL&quot;, &quot;command&quot;: &quot;OFF&quot;}</span></td></tr>
+<tr><td>00:05:51.500</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;pump P-FILL stopped&quot;}</span></td></tr>
+<tr><td>00:05:51.600</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;valve&quot;: &quot;V-FILL&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:05:51.600</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;valve V-FILL closed&quot;}</span></td></tr>
+<tr><td>00:05:51.700</td><td>process</td><td>valve</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;valve&quot;: &quot;V-F2-OUT&quot;, &quot;command&quot;: &quot;CLOSE&quot;}</span></td></tr>
+<tr><td>00:05:51.700</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;valve V-F2-OUT closed&quot;}</span></td></tr>
+<tr><td>00:05:51.800</td><td>process</td><td>quality</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;test&quot;: &quot;fill-FINISH-2&quot;, &quot;result&quot;: &quot;PASS&quot;}</span></td></tr>
+<tr><td>00:05:51.800</td><td>log</td><td>message</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;text&quot;: &quot;QC fill-FINISH-2: PASS&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>state</td><td>phase_transition</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;phase_name&quot;: &quot;FILL&quot;, &quot;frm&quot;: &quot;RUNNING&quot;, &quot;to&quot;: &quot;COMPLETE&quot;, &quot;reason&quot;: &quot;operations complete&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.FILL.FILL.FILL&quot;, &quot;element_kind&quot;: &quot;phase&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>process</td><td>phase_complete</td><td><span class='state'>{&quot;phase&quot;: &quot;P-107.FILL.FILL.FILL&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.FILL.FILL&quot;, &quot;element_kind&quot;: &quot;operation&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>resource</td><td>release</td><td><span class='state'>{&quot;resource&quot;: &quot;FILL-LINE&quot;, &quot;reason&quot;: &quot;P-107.FILL&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107.FILL&quot;, &quot;element_kind&quot;: &quot;unit_procedure&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>state</td><td>element_end</td><td><span class='state'>{&quot;path&quot;: &quot;P-107&quot;, &quot;element_kind&quot;: &quot;procedure&quot;, &quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+<tr><td>00:05:51.900</td><td>batch</td><td>batch_end</td><td><span class='state'>{&quot;state&quot;: &quot;COMPLETE&quot;}</span></td></tr>
+</table>
+<footer>Generated by the paint batch control simulation. All timestamps are simulation time (hh:mm:ss.mmm).</footer>
+</body></html>

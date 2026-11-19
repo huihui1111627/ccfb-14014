@@ -1,0 +1,185 @@
+{
+  "scenario": "single P-112",
+  "ok": true,
+  "failures": [],
+  "checks": {
+    "line_exclusivity": {
+      "ok": true,
+      "detail": []
+    },
+    "transitions": {
+      "ok": true,
+      "detail": []
+    },
+    "aggregation": {
+      "ok": true,
+      "detail": []
+    },
+    "command_legality": {
+      "ok": true,
+      "detail": []
+    },
+    "mass_balance": {
+      "ok": true,
+      "detail": []
+    },
+    "batch_sizes": {
+      "ok": true,
+      "detail": []
+    },
+    "final_states": {
+      "ok": true,
+      "detail": []
+    },
+    "resources_released": {
+      "ok": true,
+      "detail": []
+    }
+  },
+  "transition_table": [
+    {
+      "batch": "P-112-B",
+      "phase": "FEED-A",
+      "path": "P-112.BLEND.FEED-BOTH.FEED-A",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-112-B",
+      "phase": "FEED-B",
+      "path": "P-112.BLEND.FEED-BOTH.FEED-B",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-112-B",
+      "phase": "BLEND",
+      "path": "P-112.BLEND.FEED-BOTH.BLEND",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-112-B",
+      "phase": "XFER",
+      "path": "P-112.LETDOWN.TRANSFER.XFER",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-112-B",
+      "phase": "FEED-MILL",
+      "path": "P-112.MILL.MILL.FEED-MILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-112-B",
+      "phase": "GRIND",
+      "path": "P-112.MILL.MILL.GRIND",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "batch": "P-112-B",
+      "phase": "FILL",
+      "path": "P-112.FILL.FILL.FILL",
+      "observed": [
+        [
+          "IDLE",
+          "RUNNING"
+        ],
+        [
+          "RUNNING",
+          "COMPLETE"
+        ]
+      ],
+      "expected": null,
+      "ok": true,
+      "note": ""
+    }
+  ],
+  "batches": {
+    "P-112-B": {
+      "state": "COMPLETE",
+      "started": "",
+      "finished": "00:03:21.900",
+      "phases": [
+        "FEED-A",
+        "FEED-B",
+        "BLEND",
+        "XFER",
+        "FEED-MILL",
+        "GRIND",
+        "FILL"
+      ]
+    }
+  },
+  "stopped_reason": "all batches finished",
+  "duration": "00:03:21.900"
+}
